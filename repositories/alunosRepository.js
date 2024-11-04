@@ -43,7 +43,7 @@ function findAll(){
 function findOne(id, {nome, email, nome_curso}){
     const indice = alunos.findIndex(aluno => aluno.id === id);
     if(indice === -1){
-        return null;
+        return false;
     }
     return alunos[indice];
 }

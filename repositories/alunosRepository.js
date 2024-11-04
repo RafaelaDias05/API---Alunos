@@ -1,8 +1,8 @@
-const {v4: uuidv4} = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-let alunos = []
+let alunos = [];
 
-function create({nome, email, nome_curso}){
+function create({ nome, email, nome_curso }) {
     const aluno = {
         id: uuidv4(),
         nome,
@@ -10,12 +10,12 @@ function create({nome, email, nome_curso}){
         nome_curso
     };
     alunos.push(aluno);
-    return vaga;
+    return aluno;
 }
 
-function update(id, {nome, email, nome_curso}){
+function update(id, { nome, email, nome_curso }) {
     const indice = alunos.findIndex(aluno => aluno.id === id);
-    if(indice === -1){
+    if (indice === -1) {
         return null;
     }
     alunos[indice] = {
@@ -27,25 +27,22 @@ function update(id, {nome, email, nome_curso}){
     return alunos[indice];
 }
 
-function remove(id){
+function remove(id) {
     const indice = alunos.findIndex(aluno => aluno.id === id);
-    if(indice === -1){
+    if (indice === -1) {
         return false;
     }
     alunos.splice(indice, 1);
     return true;
 }
 
-function findAll(){
+function findAll() {
     return alunos;
 }
 
-function findOne(id, {nome, email, nome_curso}){
-    const indice = alunos.findIndex(aluno => aluno.id === id);
-    if(indice === -1){
-        return false;
-    }
-    return alunos[indice];
+function findOne(id) {
+    const aluno = alunos.find(aluno => aluno.id === id);
+    return aluno || null; // Retorna null se não encontrado
 }
 
 module.exports = {
@@ -54,4 +51,4 @@ module.exports = {
     remove,
     findAll,
     findOne
-}
+};

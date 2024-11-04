@@ -16,7 +16,7 @@ app.post('/alunos', (req, res) => {
 app.get('/alunos', (req, res) => { 
     const alunos = findAll();
     res.json(alunos);
-    })
+    });
 
 app.get('/alunos/:id', (req, res) => {
     const { id } = req.params;
@@ -30,8 +30,13 @@ app.put('/alunos/:id', (req, res) =>{
     const {nome, email, nome_curso} = req.body;
     const aluno = update(id, {nome, email, nome_curso});
     res.json(aluno);
-})
+});
 
+app.delete('/alunos/:id', (req, res) => {
+    const { id } = req.params;
+    remove(id);
+    res.status(204).send();
+});
 
 
     app.listen(port, () => {

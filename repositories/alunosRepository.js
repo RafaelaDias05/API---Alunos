@@ -1,4 +1,4 @@
-/ Importa a função `v4` do pacote `uuid` para gerar identificadores únicos para cada aluno
+// Importa a função `v4` do pacote `uuid` para gerar identificadores únicos para cada aluno
 const { v4: uuidv4 } = require('uuid');
 
 // Array para armazenar a lista de alunos em memória
